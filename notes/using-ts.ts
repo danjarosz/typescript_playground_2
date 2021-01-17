@@ -9,4 +9,4 @@ function add(num1: number, num2: number) {
 button.addEventListener("click", () => {
   const result = add(Number(input1.value), Number(input2.value));
   console.log(result);
-})
+});
