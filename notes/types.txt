@@ -1,0 +1,4 @@
+TYPES:
+- number
+- string
+- boolean
