@@ -10,6 +10,8 @@ interface Person {
   hobbies: string[];
   role: [number, string]; //tuple
   roleEnum: RoleVal; //enum
+  someInfo: any;
+  arrayOfSomething: any[];
 }
 
 const person: Person = {
@@ -18,6 +20,8 @@ const person: Person = {
   hobbies: ["Sports", "Cooking"],
   role: [2, "author"],
   roleEnum: RoleVal.ADMIN,
+  someInfo: "something",
+  arrayOfSomething: ["string", 190, {}, []],
 };
 
 let favoriteActivites: any[];
