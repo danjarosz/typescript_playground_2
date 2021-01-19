@@ -1,0 +1,25 @@
+{
+  "name": "typescript_playground_2",
+  "version": "1.0.0",
+  "description": "The project created for learning TypeScript purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server",
+    "compile": "tsc app.ts --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danjarosz/typescript_playground_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danjarosz/typescript_playground_2/issues"
+  },
+  "homepage": "https://github.com/danjarosz/typescript_playground_2#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "typescript": "^4.1.3"
+  }
+}
