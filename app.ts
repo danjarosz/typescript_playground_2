@@ -21,3 +21,13 @@ let combineValues: (x: number, y: number) => number;
 combineValues = add;
 // combineValues = printResult; // it fails
 console.log(combineValues(8, 9));
+
+// functions and callbacks
+function addAndHandle(n1: number, n2: number, callback: (num: number) => void) {
+  const result = n1 + n2;
+  callback(result);
+}
+
+addAndHandle(10, 20, (result) => {
+  console.log(result);
+});
