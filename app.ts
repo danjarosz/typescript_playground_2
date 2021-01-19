@@ -1,40 +1,16 @@
-enum RoleVal {
-  ADMIN,
-  READ_ONLY,
-  AUTHOR,
+function combine(input1: number | string, input2: number | string) {
+  let result;
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    result = input1 + input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
+
+  return result;
 }
 
-interface Person {
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string]; //tuple
-  roleEnum: RoleVal; //enum
-  someInfo: any;
-  arrayOfSomething: any[];
-}
+const combinedAges = combine(30, 26);
+console.log(combinedAges);
 
-const person: Person = {
-  name: "Daniel",
-  age: 30,
-  hobbies: ["Sports", "Cooking"],
-  role: [2, "author"],
-  roleEnum: RoleVal.ADMIN,
-  someInfo: "something",
-  arrayOfSomething: ["string", 190, {}, []],
-};
-
-let favoriteActivites: any[];
-favoriteActivites = ["Sports", 1];
-
-for (const hobby of person.hobbies) {
-  console.log(hobby.toUpperCase());
-}
-
-person.role[0] = 1;
-
-if (person.roleEnum === RoleVal.ADMIN) {
-  console.log("Is admin");
-}
-
-console.log(person.name, person.age);
+const combinedNames = combine("Daniel", "Kasia");
+console.log(combinedNames);
