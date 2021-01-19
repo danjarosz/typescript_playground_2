@@ -15,3 +15,9 @@ function printResultUn(num: number): undefined {
   console.log(`Result: ${num}`);
   return;
 }
+
+// types of functions
+let combineValues: (x: number, y: number) => number;
+combineValues = add;
+// combineValues = printResult; // it fails
+console.log(combineValues(8, 9));
