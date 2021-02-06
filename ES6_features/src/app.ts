@@ -68,3 +68,18 @@ const add = (...numbers: number[]) => {
 
 const addedNumbers = add(1, 2, 3, 4, 5, 10);
 console.log(addedNumbers);
+
+//-----------------------------
+// Array and Object destructuring
+
+const [hobby1, hobby2, ...remainingHobbies] = hobbies;
+console.log(hobby1, hobby2, remainingHobbies);
+
+const {
+  name: personName,
+  age: personAge,
+  hobbies: personHobby,
+  // unexistingKey, // cannot be used due to TypeScripts
+} = copiedPerson;
+
+console.log(personName, personAge, personHobby);
