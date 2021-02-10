@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
   static fiscalYear = 2020;
   // defining properties v1
   // constructor(name: string) {
@@ -9,12 +9,11 @@ class Department {
   // private employees: string[] = [];
 
   // defining properties v2 (shorten)
-  constructor(private readonly id: string, public name: string) {}
+  constructor(protected readonly id: string, public name: string) {}
   protected employees: string[] = []; // available from classes that extend Department (privaye blocks it), not from outside
 
-  describe = () => {
-    console.log(`Department (${this.id}): ${this.name}`);
-  };
+  // abstract describe(this: Department): void;
+  abstract describe = (): void => {};
 
   addEmployee = (empolyee: string) => {
     this.employees.push(empolyee);
@@ -41,6 +40,10 @@ class ITDepartment extends Department {
   public printAdmins = () => {
     console.log(this.admins.length);
     console.log(this.admins);
+  };
+
+  describe = () => {
+    console.log(`Department (${this.id}): ${this.name}`);
   };
 }
 
@@ -69,6 +72,10 @@ class AccountingDepartment extends Department {
     }
     this.addReport(value);
   }
+
+  describe = () => {
+    console.log(`The name of this Department (${this.id}) is ${this.name}`);
+  };
 
   public addEmployee = (name: string) => {
     if (name.length) {
