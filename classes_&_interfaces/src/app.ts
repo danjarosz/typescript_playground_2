@@ -9,7 +9,7 @@ class Department {
 
   // defining properties v2 (shorten)
   constructor(private readonly id: string, public name: string) {}
-  private employees: string[] = [];
+  protected employees: string[] = []; // available from classes that extend Department (privaye blocks it), not from outside
 
   describe = () => {
     console.log(`Department (${this.id}): ${this.name}`);
@@ -43,6 +43,12 @@ class AccountingDepartment extends Department {
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
   }
+
+  public addEmployee = (name: string) => {
+    if (name.length) {
+      this.employees.push(name);
+    }
+  };
 
   public addReport = (text: string) => {
     this.reports.push(text);
