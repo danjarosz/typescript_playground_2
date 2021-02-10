@@ -1,4 +1,5 @@
 class Department {
+  static fiscalYear = 2020;
   // defining properties v1
   // constructor(name: string) {
   //   this.name = name;
@@ -23,6 +24,10 @@ class Department {
     console.log(this.employees.length);
     console.log(this.employees);
   };
+
+  static createEmployee = (name: string) => {
+    return { name };
+  };
 }
 
 class ITDepartment extends Department {
@@ -38,6 +43,10 @@ class ITDepartment extends Department {
     console.log(this.admins);
   };
 }
+
+const employee = Department.createEmployee("Marian");
+console.log(employee);
+console.log(Department.fiscalYear);
 
 class AccountingDepartment extends Department {
   constructor(id: string, private reports: string[]) {
