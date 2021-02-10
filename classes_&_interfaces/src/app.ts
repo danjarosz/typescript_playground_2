@@ -8,7 +8,7 @@ class Department {
   // private employees: string[] = [];
 
   // defining properties v2 (shorten)
-  constructor(private id: string, public name: string) {}
+  constructor(private readonly id: string, public name: string) {}
   private employees: string[] = [];
 
   describe = () => {
