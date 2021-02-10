@@ -42,6 +42,23 @@ class ITDepartment extends Department {
 class AccountingDepartment extends Department {
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
+    this.lastReport = reports[0];
+  }
+
+  private lastReport: string;
+
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+    throw new Error("No reports!");
+  }
+
+  set mostRecentReport(value: string) {
+    if (!value) {
+      throw new Error("Wrong value passed!");
+    }
+    this.addReport(value);
   }
 
   public addEmployee = (name: string) => {
@@ -52,6 +69,7 @@ class AccountingDepartment extends Department {
 
   public addReport = (text: string) => {
     this.reports.push(text);
+    this.lastReport = text;
   };
 
   public printReports = () => {
@@ -71,6 +89,9 @@ accounting.addEmployee("Janusz");
 // accounting.employees[2] = "nanna"; // illegal due to private
 accounting.printEmployeeInformation();
 accounting.addReport("report 1");
+accounting.addReport("Very interesting report");
+accounting.mostRecentReport = "Harry Potter"; //setter
+console.log(accounting.mostRecentReport); //getter
 accounting.printReports();
 
 const itDep = new ITDepartment("d2", ["admin1", "admin2"]);
