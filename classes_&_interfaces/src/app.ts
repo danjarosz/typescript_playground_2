@@ -56,3 +56,15 @@ console.log(user3);
 let user4 = new PersonCL("Ziemowit", 22);
 user4.greet("Cześć,");
 console.log(user4);
+
+//-------------------------------
+// Function Interface
+// type AddFn = (a: number, b: number) => number;
+interface AddFn {
+  (a: number, b: number): number;
+}
+
+let add: AddFn;
+add = (n1: number, n2: number) => {
+  return n1 + n2;
+};
