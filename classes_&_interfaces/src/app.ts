@@ -16,8 +16,11 @@ user1 = {
 user1.greet("Hello");
 
 //--------------------------
-interface Greetable {
-  name: string;
+interface Named {
+  readonly name: string;
+}
+
+interface Greetable extends Named {
   age?: number;
   greet(phrase: string): void;
 }
