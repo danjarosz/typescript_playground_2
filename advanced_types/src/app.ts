@@ -92,3 +92,33 @@ function useVehicule(vehicule: Vehicule) {
 
 useVehicule(v1);
 useVehicule(v2);
+
+// Discriminated unions
+interface Bird {
+  type: "bird";
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  let speed = null;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+      break;
+  }
+
+  console.log("Moving with the speed: ", speed);
+}
+
+moveAnimal({ type: "bird", flyingSpeed: 300 });
+moveAnimal({ type: "horse", runningSpeed: 40 });
