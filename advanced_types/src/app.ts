@@ -34,3 +34,61 @@ type Combine = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combine & Numeric;
+
+// Type guards
+
+function add(a: Combine, b: Combine) {
+  //type guard 1
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+
+  return a + b;
+}
+
+type UnknownEmployee = Employee | Admin;
+
+function printEmployeeInformation(emp: UnknownEmployee) {
+  console.log("Name: ", emp.name);
+  // type guard 2
+  if ("privileges" in emp) {
+    console.log("Privilages: ", emp.privileges);
+  }
+  if ("startDate" in emp) {
+    console.log("Start date: ", emp.startDate);
+  }
+}
+
+printEmployeeInformation(e1);
+
+class Car {
+  drive() {
+    console.log("Driving...");
+  }
+}
+
+class Truck {
+  drive() {
+    console.log("Driving truck...");
+  }
+
+  loadCargo(cargo: number) {
+    console.log(`Loading cargo (${cargo})...`);
+  }
+}
+
+type Vehicule = Car | Truck;
+const v1 = new Car();
+const v2 = new Truck();
+
+function useVehicule(vehicule: Vehicule) {
+  vehicule.drive();
+
+  // type guard 3 - but Truck must be an object
+  if (vehicule instanceof Truck) {
+    vehicule.loadCargo(1000);
+  }
+}
+
+useVehicule(v1);
+useVehicule(v2);
