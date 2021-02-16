@@ -122,3 +122,8 @@ function moveAnimal(animal: Animal) {
 
 moveAnimal({ type: "bird", flyingSpeed: 300 });
 moveAnimal({ type: "horse", runningSpeed: 40 });
+
+// Type casting
+// const userInput = <HTMLInputElement>document.getElementById("user-input")!;
+const userInput = document.getElementById("user-input") as HTMLInputElement;
+userInput.value = "some text";
