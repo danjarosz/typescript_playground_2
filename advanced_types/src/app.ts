@@ -157,3 +157,15 @@ function newAdd(a: Combine, b: Combine) {
 const resultNum = newAdd(1, 5);
 const resultStr = newAdd("Dan", "Jar");
 const resultMix = newAdd(5, "Jar");
+
+// OPTIONAL CHAINING - useful for data fiven from backend
+const fetchedUserData = {
+  id: "u1",
+  name: "Dan",
+  job: {
+    title: "CEO",
+    description: "My own company",
+  },
+};
+
+console.log(fetchedUserData?.job?.title);
