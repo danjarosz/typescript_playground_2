@@ -5,11 +5,11 @@ const names: Array<string> = []; // string[]
 // names[0].split(" ");
 
 //Promise
-const promise: Promise<number> = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(10);
-  }, 2000);
-});
+// const promise: Promise<number> = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(10);
+//   }, 2000);
+// });
 
 // promise.then((data) => {
 //   // data.split(" ");
@@ -28,3 +28,21 @@ const mergeResult2 = merge({ brand: "Seat" }, { model: "Ibiza", age: 5 });
 console.log(mergeResult2);
 // const mergeResult3 = merge({ brand: "Seat" }, 4);
 // console.log(mergeResult3);
+
+interface Lengthy {
+  length: number;
+}
+
+function countAndDescribe<T extends Lengthy>(element: T): [T, string] {
+  let descriptionText = "Got no value";
+  if (element.length === 1) {
+    descriptionText = `Got ${element.length} element.`;
+  } else if (element.length > 1) {
+    descriptionText = `Got ${element.length} elements.`;
+  }
+  return [element, descriptionText];
+}
+
+console.log(countAndDescribe("Hi there"));
+console.log(countAndDescribe(["h1", "h2"]));
+console.log(countAndDescribe([]));
