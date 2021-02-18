@@ -127,3 +127,15 @@ moveAnimal({ type: "horse", runningSpeed: 40 });
 // const userInput = <HTMLInputElement>document.getElementById("user-input")!;
 const userInput = document.getElementById("user-input") as HTMLInputElement;
 userInput.value = "some text";
+
+// Index properties - more flexible objects
+interface ErrorContainer {
+  // { email: 'Not a valid email', username: 'Must start width a character' }
+  id: string;
+  [prop: string]: string; // index type -  don't known number of properties, but each od properties should be a string
+}
+
+const errorBag: ErrorContainer = {
+  id: "123",
+  email: "Not a valid email",
+};
