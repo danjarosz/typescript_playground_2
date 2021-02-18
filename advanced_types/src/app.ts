@@ -169,3 +169,8 @@ const fetchedUserData = {
 };
 
 console.log(fetchedUserData?.job?.title);
+
+//NULLISH COALESCING
+const newUserInput = null;
+const storedData = newUserInput ?? "Default"; // fallback, operator given by TypeScript. It doesn't use truthy and falsy values
+console.log(storedData);
