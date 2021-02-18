@@ -16,10 +16,15 @@ const promise: Promise<number> = new Promise((resolve, reject) => {
 // });
 
 //Function
-function merge<T, U>(objA: T, objB: U) {
+// function merge<T, U>(objA: T, objB: U) {
+//   return Object.assign(objA, objB);
+// }
+function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
 const mergeResult = merge({ name: "dan", surname: "jar" }, { age: 30 });
 console.log(mergeResult);
 const mergeResult2 = merge({ brand: "Seat" }, { model: "Ibiza", age: 5 });
 console.log(mergeResult2);
+// const mergeResult3 = merge({ brand: "Seat" }, 4);
+// console.log(mergeResult3);
