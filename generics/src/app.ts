@@ -102,3 +102,33 @@ console.log(numberStorage.getItems());
 // objStorage.addItem({ name: "Ran" });
 // objStorage.removeItem({ name: "Dan" });
 // console.log(objStorage.getItems());
+
+//--------------------------------------------
+// Generic utility types
+
+//Partial
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+function createCourseGoal(
+  title: string,
+  description: string,
+  completeUntil: Date
+): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {};
+
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = completeUntil;
+
+  return courseGoal as CourseGoal;
+}
+
+// Readonly
+const someNames: Readonly<string[]> = ["Max", "Anna"];
+// someNames.push("Manu"); // cannot be modified
+// can be used with objects too
