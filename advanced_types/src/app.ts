@@ -139,3 +139,21 @@ const errorBag: ErrorContainer = {
   id: "123",
   email: "Not a valid email",
 };
+
+// FUNCTION OVERLOADS
+function newAdd(a: number, b: number): number;
+function newAdd(a: string, b: string): string;
+function newAdd(a: number, b: string): string;
+function newAdd(a: string, b: number): string;
+function newAdd(a: Combine, b: Combine) {
+  //type guard 1
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+
+  return a + b;
+}
+
+const resultNum = newAdd(1, 5);
+const resultStr = newAdd("Dan", "Jar");
+const resultMix = newAdd(5, "Jar");
