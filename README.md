@@ -10,4 +10,4 @@ It is required to install TypeScript compiler. See https://www.typescriptlang.or
 
 - `npm run start` - start project
 - `tsc` - compile TypeScript code to JS.
-- `ts -w` - compile TypeScript code to JS in watch mode
+- `tsc -w` - compile TypeScript code to JS in watch mode
