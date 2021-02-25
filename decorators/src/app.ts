@@ -93,3 +93,7 @@ class Product {
     return this._price * (1 + tax);
   }
 }
+
+// decorators are executed with the defining of the class, not in runtime
+const product1 = new Product("Laptop", 2500);
+const product2 = new Product("Mouse", 100);
